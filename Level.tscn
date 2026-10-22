@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://pnwvlug0lvsx"]
+
+[ext_resource type="PackedScene" uid="uid://j267h7f0g27a" path="res://Player.tscn" id="1_bexhn"]
+[ext_resource type="Script" uid="uid://d2e8q2cwvsxhi" path="res://camera_3d.gd" id="2_t7iv1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t7iv1"]
+
+[node name="Level" type="Node3D" unique_id=749541385]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=12642415]
+transform = Transform3D(0.75296795, 0, 0, 0, -5.098444, 0, 0, 0, 1.422681, -25.566425, 6.098444, 6.680435)
+use_collision = true
+size = Vector3(11, 2, 20)
+material = SubResource("StandardMaterial3D_t7iv1")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=840421956]
+transform = Transform3D(13.412821, 0, 0, 0, 0.6014095, 0, 0, 0, 7.184861, -10.302551, 2.60141, 8.970779)
+use_collision = true
+size = Vector3(4, 1, 13)
+material = SubResource("StandardMaterial3D_t7iv1")
+
+[node name="CharacterBody3D" parent="." unique_id=818259533 instance=ExtResource("1_bexhn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 5, 12)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1452099621 node_paths=PackedStringArray("alvo")]
+transform = Transform3D(-4.371139e-08, -0.5, 0.8660254, 0, 0.8660254, 0.5, -1, 2.1855694e-08, -3.7855173e-08, 7.7942286, 9.5, 7.9999995)
+script = ExtResource("2_t7iv1")
+alvo = NodePath("../CharacterBody3D")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1807861796]
+transform = Transform3D(-4.371139e-08, -0.86602545, 0.49999997, 0, 0.49999997, 0.86602545, -1, 3.7855173e-08, -2.1855694e-08, 0, 26, 0)
+light_energy = 0.63
+light_indirect_energy = 2.584
+light_volumetric_fog_energy = 11.984
+light_angular_distance = 7.13
